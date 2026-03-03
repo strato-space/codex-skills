@@ -34,7 +34,7 @@ skill-name/
 2. **Execution skills** (`parallel-task`, `parallel-task-spark`, `super-swarm-spark`)
    - Execute plan files with subagents
    - `parallel-task` and `parallel-task-spark` are dependency-aware (unblocked wave execution)
-   - `super-swarm-spark` is a rolling-pool high-throughput executor
+   - `super-swarm-spark` is a rolling-pool high-throughput executor that intentionally ignores dependency maps and expects orchestrator-side conflict resolution
 
 3. **Documentation access skills** (`context7`, `openai-docs-skill`, `read-github`, `markdown-url`)
    - Fetch up-to-date docs and repo references
@@ -119,7 +119,8 @@ cp -r ./skills/<skill-name> ~/.claude/skills/
 
 - **Rolling-pool execution pattern** (`super-swarm-spark`)
   - Keep worker pool saturated for throughput
-  - Orchestrator resolves conflicts/integration at the tail end
+  - Relationship metadata is awareness-only (not a launch blocker)
+  - Orchestrator resolves dependency/integration conflicts at the tail end
 
 **Important for llm-council**: Do NOT yield/finish the response until the full 30-minute timer completes and `final-plan.md` is saved. The session must stay open to prevent premature termination.
 

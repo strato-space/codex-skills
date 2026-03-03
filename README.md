@@ -25,7 +25,7 @@ A collection of Codex/agent skills for planning, documentation access, frontend 
 - `parallel-task-spark`:
   Same dependency-aware wave execution model as `parallel-task`, but forces Sparky-role workers.
 - `super-swarm-spark`:
-  High-throughput rolling-pool Sparky executor focused on continuous parallel dispatch.
+  High-throughput rolling-pool Sparky executor focused on continuous parallel dispatch. Intentionally ignores dependency maps; dependency-conflict resolution is delegated to the orchestrator.
 
 ### Documentation Access
 
@@ -71,7 +71,7 @@ A collection of Codex/agent skills for planning, documentation access, frontend 
 | `llm-council` | Planner orchestrator | Planner-level only, no code execution | Multi-model plan synthesis and adjudication |
 | `parallel-task` | Executor | Dependency-aware wave execution | Safe/default executor for dependency graphs |
 | `parallel-task-spark` | Executor | Dependency-aware wave execution | Same as above, pinned to Sparky workers |
-| `super-swarm-spark` | Executor | Rolling pool with relationship metadata for awareness | Max throughput execution with stronger conflict-management needs |
+| `super-swarm-spark` | Executor | Intentionally dependency-agnostic; relationships are awareness-only | Max throughput execution; dependency conflict resolution is handled by the orchestrator |
 
 ## Installation
 
