@@ -159,7 +159,7 @@ Completion bar:
 - Do not pause due to relationship metadata
 - Continue until the full plan (or requested subset) is complete and integrated
 
-If runtime limits prevent reaching 15 active agents, increase Codex thread allowance:
+If runtime limits prevent reaching 15 active agents plus orchestrator, increase Codex thread allowance:
 
 `~/.codex/config.toml`
 ```toml
